@@ -31,7 +31,29 @@ namespace ProductApi.Controllers
         public ProductDTO PostProduct(CreateProductDTO createProduct)
         {
             var product = new ProductDTO(Guid.NewGuid(),createProduct.ProductName,createProduct.ProductPrice,DateTimeOffset.UtcNow,DateTimeOffset.UtcNow);
+            products.Add(product);
             return product;
+        }
+
+        [HttpPut]
+        public ProductDTO PutProduct(Guid id, UpdateProductDTO updateProduct)
+        {
+            var exisitingProduct = products.Where(x=>x.Id == id).FirstOrDefault();
+            var product = exisitingProduct with
+            {
+                ProductName = updateProduct.ProductName,
+                ProductPrice = updateProduct.ProductPrice,
+                ModifiedTime = DateTimeOffset.UtcNow
+            };
+            var index = products.FindIndex(x => x.Id == id);
+            products[index] = product;
+            return product;
+        }
+        [HttpDelete]
+        public void DeleteProduct(Guid id) 
+        {
+            var index = products.FindIndex(x => x.Id == id);
+            products.RemoveAt(index);
         }
     }
 }
