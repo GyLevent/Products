@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gleventepéter\\Documents\\API\\ProductApi\\ProductApi\\ProductApi.csproj": {}
+    "C:\\Users\\gleventepéter\\Documents\\API\\Products\\ProductApi\\ProductApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gleventepéter\\Documents\\API\\ProductApi\\ProductApi\\ProductApi.csproj": {
+    "C:\\Users\\gleventepéter\\Documents\\API\\Products\\ProductApi\\ProductApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gleventepéter\\Documents\\API\\ProductApi\\ProductApi\\ProductApi.csproj",
+        "projectUniqueName": "C:\\Users\\gleventepéter\\Documents\\API\\Products\\ProductApi\\ProductApi.csproj",
         "projectName": "ProductApi",
-        "projectPath": "C:\\Users\\gleventepéter\\Documents\\API\\ProductApi\\ProductApi\\ProductApi.csproj",
+        "projectPath": "C:\\Users\\gleventepéter\\Documents\\API\\Products\\ProductApi\\ProductApi.csproj",
         "packagesPath": "C:\\Users\\gleventepéter\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gleventepéter\\Documents\\API\\ProductApi\\ProductApi\\obj\\",
+        "outputPath": "C:\\Users\\gleventepéter\\Documents\\API\\Products\\ProductApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
