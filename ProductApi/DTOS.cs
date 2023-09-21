@@ -1,4 +1,5 @@
-﻿using System.Transactions;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Transactions;
 
 namespace ProductApi
 {
@@ -6,7 +7,7 @@ namespace ProductApi
     {
         public record ProductDTO(Guid Id, string ProductName,int ProductPrice, DateTimeOffset CreatedTime,DateTimeOffset ModifiedTime);
 
-        public record CreateProductDTO(string ProductName,int ProductPrice);
-        public record UpdateProductDTO(string ProductName, int ProductPrice);
+        public record CreateProductDTO([Required] string ProductName,[Range(0,10000)]int ProductPrice);
+        public record UpdateProductDTO([Required]string ProductName,[Range(0, 10000)]int ProductPrice);
     }
 }

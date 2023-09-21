@@ -20,19 +20,23 @@ namespace ProductApi.Controllers
             return products;
         }
         [HttpGet("{id}")]
-        public ProductDTO GetById(Guid id)
+        public ActionResult<ProductDTO> GetById(Guid id)
         {
             var product = products.Where(x => x.Id == id).FirstOrDefault();
 
-
-            return product;
+            if(product == null)
+            {
+                return NotFound();
+            }
+            return Ok(product);
         }
+
         [HttpPost]
-        public ProductDTO PostProduct(CreateProductDTO createProduct)
+        public ActionResult<ProductDTO> PostProduct(CreateProductDTO createProduct)
         {
-            var product = new ProductDTO(Guid.NewGuid(),createProduct.ProductName,createProduct.ProductPrice,DateTimeOffset.UtcNow,DateTimeOffset.UtcNow);
+            var product = new ProductDTO(Guid.NewGuid(), createProduct.ProductName, createProduct.ProductPrice, DateTimeOffset.UtcNow, DateTimeOffset.UtcNow);
             products.Add(product);
-            return product;
+            return CreatedAtAction(nameof(GetById), new{id = product.Id}, product);
         }
 
         [HttpPut]
@@ -50,10 +54,14 @@ namespace ProductApi.Controllers
             return product;
         }
         [HttpDelete]
-        public void DeleteProduct(Guid id) 
+        public ActionResult DeleteProduct(Guid id) 
         {
             var index = products.FindIndex(x => x.Id == id);
             products.RemoveAt(index);
+
+            return NoContent();
         }
+
+
     }
 }
